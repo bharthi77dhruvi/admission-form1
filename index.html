@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Noble University Admission Form</title>
+    <style>
+        body {
+            background-color: #e6ccff; /* light purple */
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: white;
+            color: #5a2d82;
+            width: 520px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(90,45,130,0.3);
+        }
+
+        h2, h3 {
+            text-align: center;
+            color: #5a2d82;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0 12px 0;
+            border: 1px solid #b085d6;
+            border-radius: 5px;
+        }
+
+        textarea {
+            resize: none;
+        }
+
+        button {
+            background-color: #b085d6;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #8e5cc2;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .creator {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+            color: #5a2d82;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>🎓 Noble University Admission Form 🏫</h2>
+
+    <form onsubmit="return validateForm()">
+
+        <h3>👤 Student Details</h3>
+        <label>Full Name</label>
+        <input type="text" id="name">
+
+        <label>Date of Birth</label>
+        <input type="date" id="dob">
+
+        <label>Age</label>
+        <input type="number" id="age">
+
+        <label>Gender</label>
+        <select id="gender">
+            <option value="">Select</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <h3>📚 Study History</h3>
+        <label>School Name</label>
+        <input type="text" id="school">
+
+        <label>10th Marksheet</label>
+        <input type="file" id="marks10">
+
+        <label>12th Marksheet</label>
+        <input type="file" id="marks12">
+
+        <h3>📞 Contact Details</h3>
+        <label>Address</label>
+        <textarea id="address"></textarea>
+
+        <label>Mobile Number</label>
+        <input type="text" id="mobile">
+
+        <label>Email</label>
+        <input type="email" id="email">
+
+        <p id="errorMsg" class="error"></p>
+
+        <button type="submit">Submit Application ✅</button>
+    </form>
+
+    <div class="creator">
+        💜 Created by: <b>Dhruvi | Neha | Ranjan</b>
+    </div>
+</div>
+
+<script>
+    function validateForm() {
+        let fields = [
+            "name", "dob", "age", "gender",
+            "school", "marks10", "marks12",
+            "address", "mobile", "email"
+        ];
+
+        for (let i = 0; i < fields.length; i++) {
+            let field = document.getElementById(fields[i]);
+            if (field.value === "") {
+                document.getElementById("errorMsg").innerHTML =
+                    "⚠️ Please fill all the fields before submitting.";
+                return false;
+            }
+        }
+
+        alert("🎉 Application Submitted Successfully!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
